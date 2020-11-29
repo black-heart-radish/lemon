@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <h2 v-text="message">Hi Vue</h2>
+
+    <!-- v-text: 1. 与Mustache类似，用于将文本数据显示在界面上
+                 2. 但如果用了v-text，标签的内容将不再显示，如上例
+                 3. 垃圾玩意儿，建议不用 -->
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data () {
+        return {
+          message: 'Hello Vue'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div v-html="html"></div>
+    <!-- v-html: 1. 会将字符串通过html的方式解析出来并且渲染
+                 2. 类似微信小程序的rich-text富文本标签 -->
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data () {
+        return {
+          html: '<h2>这是通过v-html指令渲染出来的标题</h2>'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
