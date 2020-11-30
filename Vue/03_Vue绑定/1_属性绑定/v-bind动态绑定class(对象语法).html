@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+  <title>Document</title>
+  <style>
+    .fontSize {
+      font-size: 36px;
+    }
+    .color {
+      color: brown;
+    }
+    .backgroundColor {
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <p :class="{key1: value1, key2: value2}">{{message}}</p> -->
+    <!-- <p :class="{类名1: 布尔值, 类名2: 布尔值}">{{message}}</p> -->
+
+    <!-- v-bind: 动态绑定class对象语法中
+      key只会是固定的类名，有没有加引号没有区别 
+      value没有引号会是data中的布尔数据，有引号只要有内容不管是啥都是true，相当于字符串转布尔型， 如例2,例0
+      并且是可以和普通的class合并的，像这里的class="backgroundColor"
+      对象语法只会动态决定是否展示所描述类，并不能决定所描述类的类名
+      如果过于复杂，可以放在methods或者computed属性里边的，如例3和例4 -->
+    
+    <!-- 例0 -->
+    <p class="backgroundColor" :class="{fontSize: true, color: false}">{{message}} | 对象语法</p>
+
+    <p class="backgroundColor" :class="{fontSize: isFontSize, color: isColor}">{{message}} | 对象语法</p>
+
+    <!-- 例2 -->
+    <p class="backgroundColor" :class="{fS: isFontSize, color: ''}">{{message}} | 测试引号</p>
+
+    <!-- 例3 : 动态绑定class的对象放在methods属性里边-->
+    <p class="backgroundColor" :class="getClasses()">{{message}} | methods</p>
+
+    <!-- 例4 : 动态绑定class的对象放在computed属性里边-->
+    <p class="backgroundColor" :class="getClass">{{message}} | computed</p>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data () {
+        return {
+          message: 'Hello Vue',
+          fS: 'fontSize',
+          isFontSize: true,
+          isColor: true,
+          isBackgroundColor: true
+        }
+      },
+      computed: {
+        getClass () {
+          return {fontSize: this.isFontSize, color: this.isColor}
+        }
+      },
+      methods: {
+        getClasses () {
+          // 在methods属性里边记得加上this
+          return {fontSize: this.isFontSize, color: this.isColor}
+        }
+      }
+    })
+  </script>
+</body>
+</html>

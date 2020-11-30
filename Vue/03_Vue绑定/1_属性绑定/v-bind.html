@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 要让src里面的数据不能写死 -->
+    <!-- <img src="https://s3.ax1x.com/2020/11/19/DuGA8e.jpg" alt="" width="450px"> -->
+
+    <!-- 1. Mustache语法在Vue中只能在内容块起作用，这样是不可以的噢，宝儿 -->
+    <img src="{{imgUrl}}" alt="" width="450px">
+
+    <!-- 2. 直接写imgUrl只会相当于字符串，也是不可以的噢，宝儿 -->
+    <img src="imgUrl" alt="" width="450px">
+
+    <!-- 3. v-bind: 动态绑定属性，并且它有语法糖，可简写为 ' : ' -->
+    <img v-bind:src="imgUrl" alt="" width="450px">
+
+    <!-- 4. 语法糖的写法 -->
+    <img :src="imgUrl" alt="" width="450px">
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data () {
+        return {
+          imgUrl: 'https://s3.ax1x.com/2020/11/19/DuGA8e.jpg'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

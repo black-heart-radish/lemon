@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <h2 :style="{key1: value1, key2: value2}">{{message}}</h2> -->
+    <!-- CSS属性名可以用' - '连接，也可以采用驼峰式写法， 如： font-size 和 fontSize 都是可行的 -->
+    <!-- <h2 :style="{CSS属性名1: CSS属性值1, CSS属性名2: CSS属性值2}">{{message}}</h2> -->
+
+    <!-- v-bind: 动态绑定style内联样式
+      应用场景为组件样式的改变
+      引号和动态绑定class是一样的
+      key不管有无引号，都是作为普通的字符串
+      value有引号为字符串，无引号为变量，可在data数据元取出
+      这里不再展示
+      当过于复杂时，也可以在methods和computed属性中return出来
+      这里也不展示，可以参照动态绑定class -->
+    <p :style="{fontSize: '40px'}">{{message}}</p>
+    <p :style="{fontSize: size1}">{{message}}</p>
+    <p :style="{fontSize: size2 + 'px'}">{{message}}</p>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data () {
+        return {
+          message: 'Hello Vue',
+          size1: '50px',
+          size2: 60
+        }
+      }
+    })
+  </script>
+</body>
+</html>

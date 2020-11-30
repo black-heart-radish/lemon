@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+  <title>Document</title>
+  <style>
+    .fontSize {
+      font-size: 36px;
+    }
+    .color {
+      color: brown;
+    }
+    .color1 {
+      color: blueviolet;
+    }
+    .backgroundColor {
+      background-color: yellowgreen;
+    }
+    .backgroundColor1 {
+      background-color: rgb(47, 155, 155);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- v-bind: 动态绑定class数组语法
+      不像对象语法里是不能动态改变它的类名，只能动态决定类名是否展示
+      数组语法可以动态改变类名，但他并不能决定所描述类是否展示，引号在这会生效
+      没有引号的就会取data数据元中的数据
+      加上引号就相当于普通的字符串
+      也可以和普通的类名合并
+      当很复杂时，也可以放在methods或computed属性里边，如例2，例3 -->
+    <p class="fontSize" :class="[backgroundColor, color]">{{message}} | 不加引号</p>
+    <p class="fontSize" :class="['backgroundColor', 'color']">{{message}} | 加上引号</p>
+
+    <!-- 例2 : 动态绑定class的数组放在methods属性里边 -->
+    <p class="fontSize" :class="getClasses()">{{message}} | methods</p>
+
+    <!-- 例3 : 动态绑定class的数组放在computed属性里边 -->
+    <p class="fontSize" :class="getClass">{{message}} | computed</p>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data () {
+        return {
+          message: 'Hello Vue',
+          color: 'color1',
+          backgroundColor: 'backgroundColor1'
+        }
+      },
+      computed: {
+        getClass () {
+          return ['backgroundColor', this.color]
+        }
+      },
+      methods: {
+        getClasses () {
+          // 在methods属性里边记得加上this
+          return [this.backgroundColor, 'color']
+        }
+      }
+    })
+  </script>
+</body>
+</html>

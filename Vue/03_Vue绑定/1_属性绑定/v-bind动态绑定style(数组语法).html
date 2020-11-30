@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <p :style="[class1, class2]">{{message}}</p> -->
+    <!-- <p :style="[class类1, class类2]">{{message}}</p> -->
+
+    <!-- v-bind: 动态绑定style 数组语法
+      把各个class类拆开重组，应用场景不多
+      区分引号，和动态绑定class一样
+      有引号为普通字符串
+      无引号为变量，可取出data数据元的数据
+      这里不再演示
+      当很复杂时，也可以在methods和computed属性中return出来
+      这里也不再赘述，可参照动态绑定class -->
+    <p :style="[class1, class2]">{{message}}</p>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data () {
+        return {
+          message: 'Hello Vue',
+          // 只能用驼峰，右边要有引号!!!
+          class1: {fontSize: '45px'},
+          class2: {color: 'yellowgreen'}
+        }
+      }
+    })
+  </script>
+</body>
+</html>
