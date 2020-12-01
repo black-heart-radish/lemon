@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 中括号 字符集合 匹配方括号中的任意字符
+    var regExp1 = /^[abc]$/ // 表示匹配 a b c 的任一字符
+    // 大括号 量词符 表示里边儿的重复次数
+    var regExp1 = /^[abc]{2}$/ // 表示让所修饰的模式重复n次，这里就是让 a b c 的随意 2 个组合
+    // 小括号 表示优先级
+    var regExp1 = /^(abc){2}$/ // 表示优先级，这里是让abc整体重复两次 abcabc
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 字符类：[] 表示有一系列字符可供选择，只要匹配其中一个就可以了
+
+    var regExp1 = /[abc]/ // 只要含有 a 或 b 或 c 都返回true
+    console.log(regExp1.test('andy')); // true
+    console.log(regExp1.test('baby')); // true
+    console.log(regExp1.test('color')); // true
+    console.log(regExp1.test('tool')); // false
+
+    console.log('-------------------- 2 --------------------');
+    var regExp2 = /^[abc]$/ // 三选一，要么是 a 要么是 b 要么是 c 
+    console.log(regExp2.test('a')); // true
+    console.log(regExp2.test('b')); // true
+    console.log(regExp2.test('c')); // true
+    console.log(regExp2.test('abc')); // false
+
+    console.log('-------------------- 3 --------------------');
+    var regExp3 = /^[a-z]$/ // 26个小写英文字母的任意一个
+    console.log(regExp3.test('a')); // true
+    console.log(regExp3.test('1')); // false
+    console.log(regExp3.test('Z')); // false
+    console.log(regExp3.test('az')); // false
+
+    // 字符组合
+    console.log('-------------------- 4 --------------------');
+    var regExp4 = /^[a-zA-Z0-9]$/ // 26个英文字母（大小写都行）或0-9的数字的任意一个
+    console.log(regExp4.test('a')); // true
+    console.log(regExp4.test('1')); // true
+    console.log(regExp4.test('Z')); // true
+    console.log(regExp4.test('az')); // false
+
+    // 字符类的取反[^]，注意和边界符的^不要混淆
+    console.log('-------------------- 5 --------------------');
+    var regExp5 = /^[^a-zA-Z0-9]$/ // 26个英文字母（大小写都行）或0-9的数字的任意一个
+    console.log(regExp5.test('a')); // false
+    console.log(regExp5.test('1')); // false
+    console.log(regExp5.test('Z')); // false
+    console.log(regExp5.test('!')); // true
+  </script>
+</body>
+</html>

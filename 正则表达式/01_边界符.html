@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 边界符：提示字符串所处的位置 -> ^ and $
+
+    var regExp1 = /abc/ // 正则表达式里面不需要加引号，不管是数字还是字符串
+    // /abc/ 只要包含有abc这个字符片段的字符串，都返回true
+    console.log(regExp1.test('abc')); // true
+    console.log(regExp1.test('abcd')); // true
+    console.log(regExp1.test('dabc')); // true
+    console.log(regExp1.test('dabcd')); // true
+
+    console.log('-------------------- 2 --------------------');
+    var regExp2 = /^abc/
+    // /^abc/ 表示必须是以abc开头的字符串才返回true
+    console.log(regExp2.test('abc')); // true
+    console.log(regExp2.test('abcd')); // true
+    console.log(regExp2.test('dabc')); // false
+    console.log(regExp2.test('dabcd')); // false
+
+    console.log('-------------------- 3 --------------------');
+    var regExp3 = /abc$/
+    // /^abc/ 表示必须是以abc结尾的字符串才返回true
+    console.log(regExp3.test('abc')); // true
+    console.log(regExp3.test('abcd')); // false
+    console.log(regExp3.test('dabc')); // true
+    console.log(regExp3.test('dabcd')); // false
+
+    console.log('-------------------- 4 --------------------');
+    var regExp4 = /^abc$/
+    // /^abc/ 表示必须是abc才返回true，精确匹配
+    console.log(regExp4.test('abc')); // true
+    console.log(regExp4.test('abcd')); // false
+    console.log(regExp4.test('dabc')); // false
+    console.log(regExp4.test('dabcd')); // false
+    console.log(regExp4.test('abcabc')); // false
+  </script>
+</body>
+</html>

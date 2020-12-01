@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 量词符：用来设定某个模式出现的次数
+    // 注意{n,m} 大括号的 , 旁边不要有空格，在正则里边都不要出现空格
+
+    // * 表示为可以出现 0 次或 很多次 ----> 次数 >= 0
+    var regExp1 = /^a*$/  // a可以出现0次或很多次
+    console.log(regExp1.test('')); // true
+    console.log(regExp1.test('a')); // true
+    console.log(regExp1.test('aa')); // true
+    console.log(regExp1.test('aba')); // false
+
+    console.log('-------------------- 2 --------------------');
+    // + 表示为 至少 出现 1 次，可以为很多次
+    var regExp2 = /^a+$/  // a至少 出现 1 次，可以为很多次
+    console.log(regExp2.test('')); // false
+    console.log(regExp2.test('a')); // true
+    console.log(regExp2.test('aa')); // true
+    console.log(regExp2.test('aba')); // false
+
+    console.log('-------------------- 3 --------------------');
+    // ? 表示为出现 0 次或 1 次，不能很多次 相当于 0 || 1
+    var regExp3 = /^a?$/  // a可以出现 0 次或 1 次 
+    console.log(regExp3.test('')); // true
+    console.log(regExp3.test('a')); // true
+    console.log(regExp3.test('aa')); // false
+    console.log(regExp3.test('aba')); // false
+
+    console.log('-------------------- 4 --------------------');
+    // {n} 表示为将所修饰的模式重复n次
+    var regExp4 = /^a{2}$/  // a重复出现2次
+    console.log(regExp4.test('')); // false
+    console.log(regExp4.test('a')); // false
+    console.log(regExp4.test('aa')); // true
+    console.log(regExp4.test('aba')); // false
+
+    console.log('-------------------- 5 --------------------');
+    // {n,} 表示为将所修饰的模式至少重复n次
+    var regExp5 = /^a{2,}$/  // a至少重复出现2次
+    console.log(regExp5.test('')); // false
+    console.log(regExp5.test('a')); // false
+    console.log(regExp5.test('aa')); // true
+    console.log(regExp5.test('aaa')); // true
+    console.log(regExp5.test('aaaa')); // true
+    console.log(regExp5.test('aba')); // false
+
+    console.log('-------------------- 6 --------------------');
+    // {n,m} 表示为将所修饰的模式 至少重复 n 次，至多重复 m 次
+    var regExp6 = /^a{2,3}$/  // a至少重复出现2次，至多出现3次
+    console.log(regExp6.test('')); // false
+    console.log(regExp6.test('a')); // false
+    console.log(regExp6.test('aa')); // true
+    console.log(regExp6.test('aaa')); // true
+    console.log(regExp6.test('aaaa')); // false
+    console.log(regExp6.test('aba')); // false
+
+    // 字符类与量词符的结合使用
+    console.log('-------------------- 7 --------------------');
+    var regExp7 = /^[a-z]{2,3}$/  // 26个小写英文字母的任意 2 或 3 个组合
+    console.log(regExp7.test('')); // false
+    console.log(regExp7.test('a')); // false
+    console.log(regExp7.test('ab')); // true
+    console.log(regExp7.test('abc')); // true
+    console.log(regExp7.test('abcd')); // false
+
+    // 小括号与量词符的结合使用
+    console.log('-------------------- 8 --------------------');
+    var regExp8 = /^(abc){2,3}$/  // abc模式重复两次或者三次
+    console.log(regExp8.test('')); // false
+    console.log(regExp8.test('abc')); // false
+    console.log(regExp8.test('abca')); // false
+    console.log(regExp8.test('abcabc')); // true
+    console.log(regExp8.test('abcabcabc')); // true
+    console.log(regExp8.test('abcabcabcabc')); // true
+  </script>
+</body>
+</html>
