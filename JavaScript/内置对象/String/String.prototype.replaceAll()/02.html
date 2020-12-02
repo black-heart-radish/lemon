@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 在replaceAll()方法里，使用正则搜索替换值必须加上全局 g ，下面会抛出TypeError
+    let str = 'baby'
+    let pattern = /b/
+    let newStr = str.replaceAll(pattern, 'B');
+    console.log(newStr);
+  </script>
+</body>
+</html>
