@@ -2,6 +2,7 @@
 //   提取某个字符串的一部分，
 //   返回一个新的字符串，
 //   不会改变原字符串
+//   两端都是闭区间
 //     语法： stringObject,slice(beginIndex, endIndex)
 //       beginIndex 开始截取的索引，
 //         如果值为负数，会被当做str.length + beginIndex 看待，可以理解为倒数第几个
