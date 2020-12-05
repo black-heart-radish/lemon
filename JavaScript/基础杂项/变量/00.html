@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 尽量不要使用 name 作为变量名，下面并不会报错!!!!!!! 证明是存在这个东西的
+    console.log(name); // 为空行
+
+    // 2. 变量声明
+    var age;
+
+    // 3. 变量赋值
+    age = 18;
+
+    // 4. 变量初始化
+    var people_name = 'Kent';
+
+    // 5. 用 var 在全局作用域声明的属性会挂载到window对象中，let 和 const 不会
+    console.log(window.age); // 18
+
+    // 6. 需要声明多个变量可用 ' , ' 分隔
+    var num1,
+        num2 = 2;
+    num1 = 1;
+    console.log(num1 + num2);
+
+    // 7. 只声明，不赋值，值为 undefined
+    var test1;
+    console.log(test1); // undefined
+
+    // 8. 不声明，只赋值，在非严格模式下相当于声明了一个全局变量，严格模式报错
+    if (true) {
+      test2 = 20
+      console.log(test2); // 20
+    }
+    console.log(test2); // 20
+
+    // 9. 不声明，不赋值，直接引用则报错
+    try {
+      console.log(test3);
+    } catch (error) {
+      console.log(error); // ReferenceError: test3 is not defined
+    }
+  </script>
+</body>
+</html>
