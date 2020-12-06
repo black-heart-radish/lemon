@@ -8,3 +8,8 @@ console.log(typeof(a)); // object
 console.log(typeof(b)); // undefined
 console.log(a == b); // true
 console.log(a === b); // false
+
+console.log( 5 + null); // 5
+console.log( 5 / null); // Infinity
+console.log( 5 * null); // 0
+console.log(true + null); // 1
