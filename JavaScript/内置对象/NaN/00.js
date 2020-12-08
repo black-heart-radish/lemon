@@ -5,6 +5,6 @@
 //     在执行自比较之中：NaN，也只有NaN，比较之中不等于它自己
 
 let NaN1 = NaN
-let NaN2 = NaN
+let NaN2 = NaN 
 console.log(NaN1 == NaN2); // false
 console.log(isNaN(NaN1)); // true
