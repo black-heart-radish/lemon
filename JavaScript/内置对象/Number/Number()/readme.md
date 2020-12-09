@@ -1,0 +1,1 @@
+# 默认转型都是用 Number() , Number() 与 parseInt() 和 parseFloat()还是相差很多的
