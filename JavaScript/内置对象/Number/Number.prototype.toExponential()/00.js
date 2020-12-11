@@ -7,3 +7,4 @@ let num1 = 121212121212;
 let num2 = 0.121212121212;
 console.log(num1.toExponential(5)); // 1.21212e+11
 console.log(num2.toExponential(5)); // 1.21212e-1
+console.log(num2.toExponential());

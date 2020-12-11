@@ -12,5 +12,6 @@
 let str = 'hello WorlD'
 let regExp = /[A-Z]/g
 let regExp1 = /[.]/g
+console.log(str.search()); // 0
 console.log(str.search(regExp)); // 6
 console.log(str.search(regExp1)); // -1
