@@ -13,6 +13,10 @@ const fs = require('fs')
 //    第二个参数是一个回调函数, 接收两个参数(error, data)
 //      - 成功 : data 数据  error null
 //      - 失败 : data undefined  error 错误对象
+//    注意：./002读取文件.txt 不是相对于当前文件路径
+//          而是相对于执行 node 命令所处的终端路径
+//          这不是错误, Node就是这样设计的
+//          就是说, 文件操作路径中, 相对路径设计的就是相对于执行 node 命令所处的路径
 fs.readFile('./002读取文件.txt', function (error, data) {
   // console.log(data);
   // <Buffer 68 65 6c 6c 6f 20 4e 6f 64 65>
